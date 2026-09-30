@@ -1,5 +1,5 @@
 /* ============================================================
-   CONSTRUCTORA Y PROYECTOS B&M S.A.C.
+   CONSULTORÍA, CONSTRUCTORA E INVERSIONES FAKECC S.A.C.
    Configuración central del sitio.
    Este es el ÚNICO archivo que debes editar para cambiar
    datos, obras, contacto o certificaciones.
@@ -9,11 +9,14 @@
 const CONFIG = {
 
   empresa: {
-    nombre: 'Constructora y Proyectos B&M S.A.C.',
-    nombreCorto: 'B&M',
-    ruc: '20604736421',                 // verificar antes de publicar
-    eslogan: 'Proyectos sólidos, resultados reales',
-    fundacion: 2022,
+    nombre: 'Consultoría, Constructora e Inversiones FAKECC S.A.C.',
+    nombreCorto: 'FAKECC',
+    ruc: '20487063399',
+    eslogan: 'Construyendo el futuro de la inversión',
+    fundacion: 2014,
+    representanteLegal: 'Wilder David Cano Suárez',
+    rnpEjecutor: '83613',
+    capacidadContratacion: 'S/ 900,000.00',
     descripcionCorta: 'Ejecutamos obras de pistas, veredas y movilidad urbana para municipalidades de Lima Norte.'
   },
 
@@ -54,12 +57,12 @@ const CONFIG = {
   },
 
   contacto: {
-    telefono: '[COMPLETAR]',            // ej: '(01) 555 1234'
-    whatsapp: '[COMPLETAR]',            // solo dígitos con código país, ej: '51987654321'
-    email: 'bymconstructorasac@gmail.com',
-    direccion: 'Av. San Felipe 1006, Comas, Lima',   // verificar
+    telefono: '912 071 787',
+    whatsapp: '+51 912 071 787',        // el enlace wa.me se arma quitando lo que no sea dígito
+    email: 'canoespinoza17@outlook.com',
+    direccion: 'Asoc. Santísima Cruz de Motupe Mz. J Lt. 20, Puente Piedra, Lima',
     horario: 'Lunes a viernes, 9:00 a 18:00',
-    formspree: 'https://formspree.io/f/xjgnagnp'
+    formspree: 'https://formspree.io/f/xjgnagnp'   // verificar que apunte al correo de FAKECC
   },
 
   // Botones del pie de página. Deja vacío lo que no uses y el ícono no aparece.
@@ -70,26 +73,26 @@ const CONFIG = {
   },
 
   ubicacion: {
-    latitud: -11.9398,
-    longitud: -77.0553,
+    latitud: -11.8608,      // Puente Piedra — coordenadas aproximadas, afinar con el pin exacto
+    longitud: -77.0765,
     googleMapsUrl: ''   // [COMPLETAR] enlace "Compartir" de Google Maps
   },
 
   /* ---------- Indicadores de la portada ---------- */
   stats: [
-    { valor: 16, sufijo: '', etiqueta: 'obras ejecutadas' },
-    { valor: 3,  sufijo: '', etiqueta: 'obras en ejecución' },
-    { valor: 4,  sufijo: '', etiqueta: 'certificaciones ISO' },
-    { valor: 2,  sufijo: '', etiqueta: 'distritos atendidos' }
+    { valor: 14, sufijo: '', etiqueta: 'obras ejecutadas' },
+    { valor: 11, sufijo: '', etiqueta: 'años de experiencia' },
+    { valor: 5,  sufijo: '', etiqueta: 'especialidades categoría A' },
+    { valor: 900, sufijo: ' mil', etiqueta: 'capacidad de contratación (S/)' }
   ],
 
   /* ---------- Cobertura: distritos de Lima Norte ---------- */
   cobertura: [
     { id: 'los-olivos',    nombre: 'Los Olivos',    estado: 'activo' },
-    { id: 'independencia', nombre: 'Independencia', estado: 'activo' },
-    { id: 'comas',         nombre: 'Comas',         estado: 'sede' },
+    { id: 'independencia', nombre: 'Independencia', estado: 'cobertura' },
+    { id: 'comas',         nombre: 'Comas',         estado: 'cobertura' },
     { id: 'san-martin',    nombre: 'San Martín de Porres', estado: 'cobertura' },
-    { id: 'puente-piedra', nombre: 'Puente Piedra', estado: 'cobertura' },
+    { id: 'puente-piedra', nombre: 'Puente Piedra', estado: 'sede' },
     { id: 'carabayllo',    nombre: 'Carabayllo',    estado: 'cobertura' }
   ],
 
@@ -103,7 +106,7 @@ const CONFIG = {
     {
       id: 'pistas',
       nombre: 'Pistas y pavimentación',
-      tono: 'navy',
+      tono: 'black',
       reverso: 'images/beta_6.jpg',
       descripcion: 'Pavimento de concreto y asfalto sobre base compactada, con señalización y control de calidad en cada capa.',
       imagenes: [
@@ -115,7 +118,7 @@ const CONFIG = {
     {
       id: 'espacios',
       nombre: 'Parques y veredas',
-      tono: 'orange',
+      tono: 'red',
       reverso: 'images/justicia_1.jpg',
       descripcion: 'Veredas, sardineles, rampas normadas, áreas verdes y mobiliario urbano para el espacio público del barrio.',
       imagenes: [
@@ -127,7 +130,7 @@ const CONFIG = {
     {
       id: 'contencion',
       nombre: 'Muros y escaleras',
-      tono: 'steel',
+      tono: 'graphite',
       reverso: 'images/padua_cartel.jpg',
       descripcion: 'Muros de contención y escaleras de acceso en laderas y asentamientos humanos, donde el terreno exige solución estructural.',
       imagenes: [
@@ -168,10 +171,10 @@ const CONFIG = {
     acento: 'Proyectos',
     intervalo: 5000,
     emblematicas: [
-      'av-betancourt',
-      'parque-justicia',
-      'mercurio-alto',
-      'pasaje-venus'
+      'sector-multiple',
+      'parque-virgen-carmen',
+      'pasaje-venus',
+      'patria-nueva-movilidad'
     ]
   },
 
@@ -272,8 +275,8 @@ const CONFIG = {
      estado           : 'ejecutada' | 'ejecucion'
      rubro            : rubro principal — es la etiqueta que se ve
      rubroSecundario  : opcional; la obra también sale en ese filtro
-     empresa          : '' si la ejecutó B&M; si no, el texto que
-                        quieras mostrar en la tarjeta
+     empresa          : '' si la ejecutó FAKECC directamente; si no,
+                        el texto que se muestra en la tarjeta
      galeria          : archivos dentro de /images
      orden            : posición de la tarjeta en cada vista (1 = la
                         primera, de izquierda a derecha / arriba).
@@ -289,7 +292,9 @@ const CONFIG = {
      ============================================================ */
   proyectos: [
 
-    /* ---------- B&M ---------- */
+    /* ---------- Obras del grupo ----------
+       Las ejecutó otra empresa del Grupo Zaragoza; se muestran con
+       esa nota en la tarjeta. Borra las que no quieras mostrar.  */
     {
       id: 'calle-17',
       nombre: 'Renovación de pavimento, vereda y sardinel — Calle 17',
@@ -298,7 +303,7 @@ const CONFIG = {
       ubicacion: 'A.H. Chillón y Urb. Prolima, Los Olivos',
       ano: 2026,
       estado: 'ejecutada',
-      empresa: '',
+      empresa: 'Obra del Grupo Zaragoza',
       rubro: 'pistas',
       rubroSecundario: '',
       descripcion: 'Renovación de pavimento, vereda y sardinel, con construcción de rampas de acceso.',
@@ -314,7 +319,7 @@ const CONFIG = {
       ubicacion: 'Parque N.º 2 Justicia, AA.HH. Los Jazmines del Naranjal, Los Olivos',
       ano: 2026,
       estado: 'ejecutada',
-      empresa: '',
+      empresa: 'Obra del Grupo Zaragoza',
       rubro: 'espacios',
       rubroSecundario: '',
       descripcion: 'Mejoramiento integral del parque: áreas verdes, mobiliario urbano, iluminación y accesibilidad.',
@@ -330,7 +335,7 @@ const CONFIG = {
       ubicacion: 'Calles internas del AA.HH. Municipal Chillón, Los Olivos',
       ano: 2026,
       estado: 'ejecutada',
-      empresa: '',
+      empresa: 'Obra del Grupo Zaragoza',
       rubro: 'espacios',
       rubroSecundario: '',
       descripcion: 'Mejoramiento de la movilidad urbana en calles internas, con pavimentación y señalización.',
@@ -345,8 +350,8 @@ const CONFIG = {
       distrito: 'los-olivos',
       ubicacion: 'Calle Los Jazmines, desde Calle Aquia hasta Av. Universitaria, Los Olivos',
       ano: 2026,
-      estado: 'ejecutado',
-      empresa: '',
+      estado: 'ejecutada',
+      empresa: 'Obra del Grupo Zaragoza',
       rubro: 'pistas',
       rubroSecundario: '',
       descripcion: 'Renovación de pavimento y señalización para mejorar la seguridad vial del sector.',
@@ -355,9 +360,9 @@ const CONFIG = {
       orden: { todos: 4, pistas: 3 }
     },
 
-    /* ---------- Obras del grupo (Grupo Zaragoza) ----------
-       Ajusta el texto de 'empresa' o borra las que no quieras
-       mostrar. Aparecen con esa nota en la tarjeta.            */
+    /* ---------- Obras propias de FAKECC ----------
+       Las cinco que constan a nombre de FAKECC S.A.C. ante la
+       Municipalidad de Los Olivos. Van sin nota de empresa.     */
     {
       id: 'sector-multiple',
       nombre: 'Renovación de pavimento y señales de tráfico — Sector Múltiple',
@@ -366,7 +371,7 @@ const CONFIG = {
       ubicacion: 'Calles 54, 55, 58 y jirones La Amistad, Veracidad, Los Olivos',
       ano: 2025,
       estado: 'ejecutada',
-      empresa: 'Obra del Grupo Zaragoza',
+      empresa: '',
       rubro: 'pistas',
       rubroSecundario: '',
       descripcion: 'Renovación integral de pavimento y señalización de tránsito, orientada a optimizar las condiciones de la infraestructura vial.',
@@ -382,7 +387,7 @@ const CONFIG = {
       ubicacion: 'Calle Los Rosales y Los Girasoles, AA.HH. Mercurio Alto, Los Olivos',
       ano: 2025,
       estado: 'ejecutada',
-      empresa: 'Obra del Grupo Zaragoza',
+      empresa: '',
       rubro: 'contencion',
       rubroSecundario: '',
       descripcion: 'Ejecución de obras de infraestructura urbana orientadas a habilitar y mejorar la circulación peatonal mediante escaleras y/o rampas, complementadas con la construcción de un muro de contención para garantizar la estabilidad del terreno.',
@@ -398,7 +403,7 @@ const CONFIG = {
       ubicacion: 'AA.HH. Moradores del Pasaje Venus, C.P. Las Palmeras, Los Olivos',
       ano: 2025,
       estado: 'ejecutada',
-      empresa: 'Obra del Grupo Zaragoza',
+      empresa: '',
       rubro: 'contencion',
       rubroSecundario: 'pistas',
       descripcion: 'Ejecución de obras de infraestructura urbana destinadas a habilitar y mejorar la circulación peatonal mediante la construcción de pavimento, veredas, escaleras y/o rampas, complementadas con la edificación de un muro de contención y otros activos.',
@@ -452,7 +457,7 @@ const CONFIG = {
       rubroSecundario: '',
       descripcion: 'Creación del servicio de atención y cuidado para personas en condición de discapacidad en el local geriátrico y de discapacidad del AA.HH. Santa Rosa de Naranjal, con infraestructura de segundo nivel para su funcionamiento.',
       image: 'images/geri_11.jpg',
-      galeria: ['geri_1.jpg','geri_2.jpg','geri_3.jpg','geri_4.jpg','geri_5.jpg','geri_6.jpg','geri_7.jpg','geri_8.png','geri_9.jpg','geri_10.jpg','geri_11.jpg'],
+      galeria: ['geri_1.jpg','geri_2.jpg','geri_3.jpg','geri_4.jpg','geri_5.jpg','geri_6.jpg','geri_7.jpg','geri_8.jpg','geri_9.jpg','geri_10.jpg','geri_11.jpg'],
       orden: { todos: 11, espacios: 4 }
     },
     {
@@ -479,7 +484,7 @@ const CONFIG = {
       ubicacion: 'A.H. San Alberto, Los Olivos',
       ano: 2025,
       estado: 'ejecutada',
-      empresa: 'Obra del Grupo Zaragoza',
+      empresa: '',
       rubro: 'espacios',
       rubroSecundario: '',
       descripcion: 'Ejecución de obras de infraestructura urbana destinadas a habilitar y mejorar la circulación peatonal mediante escaleras, rampas y sardineles, complementadas con la instalación de mobiliario urbano y obras exteriores.',
@@ -495,7 +500,7 @@ const CONFIG = {
       ubicacion: 'Calles internas del A.H. Patria Nueva, Los Olivos',
       ano: 2025,
       estado: 'ejecutada',
-      empresa: 'Obra del Grupo Zaragoza',
+      empresa: '',
       rubro: 'contencion',
       rubroSecundario: '',
       descripcion: 'Ejecución de obras de infraestructura vial y urbana orientadas a implementar y mejorar el servicio de movilidad en las vías internas del ámbito de intervención, optimizando las condiciones de transitabilidad.',
@@ -523,9 +528,9 @@ const CONFIG = {
 
   /* ---------- Textos institucionales ---------- */
   institucional: {
-    historia: 'Constructora y Proyectos B&M S.A.C. es una empresa especializada en la ejecución de obras civiles, instalaciones eléctricas e hidráulicas, supervisión de construcciones y servicios de ingeniería. Desde 2022 trabajamos con entidades públicas y privadas de Lima Norte.',
-    mision: 'Ejecutar obras de infraestructura vial, peatonal y de saneamiento con cumplimiento de plazos y estándares técnicos, contribuyendo al desarrollo urbano de Lima Norte y generando empleo local.',
-    vision: 'Ser una constructora reconocida en Lima Norte por la calidad de sus obras públicas, ampliando su participación en proyectos de mayor envergadura a nivel nacional.'
+    historia: 'Consultoría, Constructora e Inversiones FAKECC S.A.C. es una empresa especializada en construcciones y ejecución de obras civiles en general, instalaciones de proyectos eléctricos e hidroeléctricos, supervisión de construcciones y servicios de ingeniería civil y conexos. Desde su fundación en 2014 hemos ejecutado proyectos para la empresa privada y organismos públicos, con alta calidad de ejecución y seriedad en el cumplimiento de los plazos pactados.',
+    mision: 'Somos una empresa constructora comprometida con el medio ambiente, encargada de brindar servicios de ingeniería, construcción, saneamiento físico legal y tasaciones, tanto en el ámbito público como privado. Nuestra misión es satisfacer las necesidades de nuestros clientes antes, durante y después de finalizar el proyecto, cumpliendo los estándares de calidad, costos y plazos fijados, y respetando la legislación laboral, técnica, medioambiental y social.',
+    vision: 'Afianzarnos como una empresa constructora líder a nivel nacional, con proyección internacional en servicios de ingeniería, construcción y mantenimiento; sustentada en la responsabilidad, la eficiencia y la innovación en la mejora continua de nuestros procesos, así como en la gestión del capital humano y el respeto a las normas de conservación del medio ambiente.'
   }
 };
 

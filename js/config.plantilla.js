@@ -129,7 +129,7 @@ const CONFIG = {
     {
       id: '[completar-id]',
       nombre: '[COMPLETAR] Nombre del rubro',
-      tono: 'navy',
+      tono: 'black',
       reverso: 'images/[COMPLETAR].jpg',
       descripcion: '[COMPLETAR] Qué incluye este servicio, en 1-2 líneas.',
       imagenes: [

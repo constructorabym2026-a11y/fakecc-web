@@ -71,7 +71,7 @@ function montarHeader() {
     <div class="navbar">
       <div class="wrap navbar__inner">
         <a class="brand" href="index.html" aria-label="Inicio — ${CONFIG.empresa.nombre}">
-          <img class="brand__img" src="images/logo-fondo-blanco.png" alt="${CONFIG.empresa.nombre}">
+          <img class="brand__img" src="images/logo-fakecc.png" width="347" height="112" alt="${CONFIG.empresa.nombre}">
         </a>
 
         <nav aria-label="Navegación principal">
@@ -242,7 +242,7 @@ function montarFooter() {
       </div>
 
       <div class="footer__bottom">
-        <span>© ${new Date().getFullYear()} ${CONFIG.empresa.nombre}. Todos los derechos reservados.</span>
+        <span>© ${new Date().getFullYear()} ${CONFIG.empresa.nombre} — Todos los derechos reservados.</span>
         <span>Obras públicas y privadas en Lima Norte</span>
       </div>
     </div>`;

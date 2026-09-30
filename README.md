@@ -1,75 +1,88 @@
-# Sitio web — Constructora y Proyectos B&M S.A.C.
+# Sitio web — Consultoría, Constructora e Inversiones FAKECC S.A.C.
 
-Sitio estático de 7 páginas. HTML, CSS y JavaScript escritos para este proyecto,
+Sitio estático de 6 páginas. HTML, CSS y JavaScript escritos para este proyecto,
 sin Bootstrap, sin Tailwind, sin jQuery y sin librerías de animación.
 Las únicas dependencias externas son Google Fonts y Font Awesome (licencia MIT,
 no obliga a mostrar créditos en la página).
 
+Este sitio nace del de Constructora B&M y se adaptó a FAKECC: identidad, datos de
+empresa y paleta. El historial de git conserva el estado original.
+
 ## Estructura
 
 ```
-bym-web/
+fakecc-web/
 ├── index.html            Portada
 ├── nosotros.html
 ├── servicios.html
 ├── proyectos.html        Menú lateral por rubro + mapa
 ├── certificaciones.html
-├── novedades.html
 ├── contacto.html
+├── CNAME                 Dominio: fakeccconstructora.com
+├── robots.txt
+├── sitemap.xml
 ├── css/styles.css        Todo el diseño
 ├── js/
 │   ├── config.js         ← el único archivo que editas normalmente
+│   ├── config.plantilla.js  Molde en blanco, para replicar el sitio a otra empresa
 │   ├── components.js     Cabecera, pie, flotantes, visor de fotos
 │   ├── animations.js     Movimiento (IntersectionObserver, rAF)
-│   ├── main.js           Slider, formulario, secciones desde CONFIG
+│   ├── main.js           Portada, indicadores, textos institucionales, formulario
 │   └── proyectos.js      Obras, filtro por rubro, mapa de cobertura
-├── images/               ← copia aquí tu carpeta actual de imágenes
-└── docs/                 ← PDFs de las certificaciones ISO
+├── images/               Fotos de obra, logo y sellos de certificación
+├── logo/                 Logotipo original de FAKECC (SVG, PDF y PNG 3D)
+└── docs/                 PDFs de las certificaciones
 ```
 
-## Instalación
+## Cómo verlo
 
-1. Copia tu carpeta `images/` actual dentro de `bym-web/images/`.
-2. **Renombra `presentación_1.jpg` a `presentacion_1.jpg`** (sin tilde). Las tildes
-   en nombres de archivo fallan en algunos servidores y al generar URLs.
-3. Copia los 4 PDFs ISO dentro de `docs/`. El de ambiental debe llamarse
-   `ISO_AMBIENTAL_14001_B_M.pdf` (antes decía 14005).
-4. Ábrelo con un servidor local, no con doble clic:
-   ```
-   python3 -m http.server 8000
-   ```
-   y entra a `http://localhost:8000`.
+No lo abras con doble clic: usa un servidor local.
+
+```
+python -m http.server 8000
+```
+
+y entra a `http://localhost:8000`. Si editas un `.js` y el cambio no se ve,
+es el caché del navegador: `Ctrl+Shift+R`.
 
 ## Qué falta completar
 
-En `js/config.js`, todo lo marcado `[COMPLETAR]`:
+En `js/config.js`:
 
-- teléfono y WhatsApp (el botón flotante y la barra superior solo aparecen si el
-  WhatsApp está puesto)
-- enlace de Google Maps y coordenadas exactas de la oficina
-- redes sociales (si se quedan vacías, los íconos no se muestran)
-- verificar RUC y dirección
+- `ubicacion.googleMapsUrl` y afinar las coordenadas exactas de la oficina de
+  Puente Piedra (hoy son aproximadas)
+- `redes`: si se quedan vacías, los íconos no se muestran en el pie
+- verificar que el endpoint de Formspree llegue al correo de FAKECC
+- **certificaciones**: los PDF e imágenes que hay en `docs/` e
+  `images/certificados/` están emitidos a nombre de B&M. Hay que
+  reemplazarlos por los de FAKECC antes de publicar.
 
 ## Cómo editar el contenido
 
 Todo sale de `js/config.js`. No se toca el HTML para:
 
 - **Agregar una obra**: copia un bloque dentro de `proyectos` y cámbialo.
-  `estado: 'ejecucion'` muestra el distintivo azul y el marcador de obra sin foto;
-  `estado: 'ejecutada'` muestra el distintivo naranja.
+  `estado: 'ejecucion'` muestra el distintivo gris y el marcador de obra sin foto;
+  `estado: 'ejecutada'` muestra el distintivo rojo.
+  `empresa: ''` = la ejecutó FAKECC; con texto, aparece esa nota en la tarjeta.
 - **Agregar fotos a una obra**: pon los archivos en `images/` y añade sus nombres
   al arreglo `galeria`. La tarjeta pasa a ser clicable y abre el visor.
-- **Publicar una novedad**: agrega un bloque en `novedades` con fecha `AAAA-MM-DD`.
-- **Cambiar un servicio o una certificación**: mismos arreglos, mismo formato.
+- **Cambiar un servicio, un indicador o una certificación**: mismos arreglos,
+  mismo formato.
+- **Historia, misión y visión**: bloque `institucional`. Se pintan solos en la
+  portada y en `nosotros.html`; no hay que tocar el HTML.
+
+Antes de publicar, valida la sintaxis: `node --check js/config.js`.
+Un error ahí deja el sitio en blanco.
 
 ## Diseño
 
 Colores, tipografías y espaciados están en las variables del inicio de
-`css/styles.css`. Cambiando `--navy` y `--orange` cambia todo el sitio.
+`css/styles.css`. Cambiando `--red` y `--black` cambia todo el sitio.
 
-`--orange` (#FF6B35) se usa para gráficos y `--orange-ink` (#C8430F) para texto y
-botones: el naranja claro con texto blanco no alcanza el contraste mínimo
-accesible, el oscuro sí.
+La paleta sale del isotipo de FAKECC: rojo `#E10613`, negro `#1A1A1A` y blanco.
+`--red` se usa para superficies y gráficos, y `--red-ink` (#B0040F) para texto
+sobre blanco; `--red-deep` es el estado `:hover` de los botones.
 
 ## Movimiento
 
@@ -84,7 +97,8 @@ Sin librerías:
 ## Publicación
 
 Sitio estático: funciona en GitHub Pages o Cloudflare Pages sin configuración de
-build. Directorio de salida: la raíz del proyecto.
+build. Directorio de salida: la raíz del proyecto. El `CNAME` apunta a
+`fakeccconstructora.com`.
 
 ## Formulario
 

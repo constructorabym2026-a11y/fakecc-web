@@ -196,7 +196,7 @@ function renderEspecialidades() {
   const hexagonos = CONFIG.rubros.map(r => {
     const foto = r.reverso || (r.imagenes && r.imagenes[0]) || '';
     return `
-      <a class="hex hex--${r.tono || 'navy'}" href="proyectos.html?rubro=${r.id}"
+      <a class="hex hex--${r.tono || 'black'}" href="proyectos.html?rubro=${r.id}"
          aria-label="${r.nombre}: ver proyectos">
         <span class="hex__inner">
           <span class="hex__face hex__face--front">
@@ -375,31 +375,23 @@ function renderCertificaciones() {
   resolver();
 }
 
-/* ---------- 6. NOVEDADES ---------- */
-const MESES = ['ene', 'feb', 'mar', 'abr', 'may', 'jun', 'jul', 'ago', 'set', 'oct', 'nov', 'dic'];
+/* ---------- 6. TEXTOS INSTITUCIONALES ----------
+   Historia, misión y visión salen de CONFIG.institucional: así no hay
+   que reescribirlos a mano en el HTML de cada página.              */
+function renderInstitucional() {
+  const textos = CONFIG.institucional;
+  if (!textos) return;
 
-function renderNovedades() {
-  const host = document.getElementById('newsGrid');
-  if (!host || !Array.isArray(CONFIG.novedades)) return;
+  const destinos = {
+    historiaTexto: textos.historia,
+    misionTexto:   textos.mision,
+    visionTexto:   textos.vision
+  };
 
-  const limite = Number(host.dataset.limite) || CONFIG.novedades.length;
-
-  host.innerHTML = CONFIG.novedades.slice(0, limite).map(n => {
-    const f = new Date(n.fecha + 'T00:00:00');
-    return `
-    <article class="news-item reveal">
-      <div class="news-item__media">
-        ${n.image ? `<img src="${n.image}" alt="" loading="lazy">` : ''}
-        <div class="news-item__date"><b>${f.getDate()}</b>${MESES[f.getMonth()]} ${f.getFullYear()}</div>
-      </div>
-      <div class="news-item__body">
-        <h3 class="news-item__title">${n.titulo}</h3>
-        <p class="news-item__text">${n.resumen}</p>
-      </div>
-    </article>`;
-  }).join('');
-
-  escalonar(host);
+  Object.entries(destinos).forEach(([id, texto]) => {
+    const host = document.getElementById(id);
+    if (host && texto) host.textContent = texto;
+  });
 }
 
 /* ---------- 7. DATOS DE CONTACTO ---------- */
@@ -611,7 +603,7 @@ document.addEventListener('DOMContentLoaded', () => {
   renderCertificaciones();
   renderDestacadas();
   renderIsoBand();
-  renderNovedades();
+  renderInstitucional();
   renderContacto();
   initFormulario();
 });
