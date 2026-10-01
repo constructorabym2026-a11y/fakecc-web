@@ -173,8 +173,8 @@ const CONFIG = {
     emblematicas: [
       'sector-multiple',
       'parque-virgen-carmen',
-      'pasaje-venus',
-      'patria-nueva-movilidad'
+      'escalera-padua',
+      'parque-peru-japon'
     ]
   },
 
